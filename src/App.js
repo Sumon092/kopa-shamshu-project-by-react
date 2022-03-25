@@ -15,11 +15,11 @@ function App() {
       .then(data => setGuns(data));
   }, [])
   return (
+
     <div className="App">
       <Navbar></Navbar>
-
       {
-        guns.map((gun) => (< Cart key={gun.id}> data={gun}</Cart>))
+        guns.map((gun) => (< Cart key={gun.id} data={gun}></Cart>))
       }
     </div >
   );

@@ -4,7 +4,7 @@ import './Navbar.css'
 const Navbar = (props) => {
     return (
         <div className='navbar'>
-            <h2>Kopa Shamsu store</h2>
+            <h1>Kopa Shamsu store</h1>
         </div>
     );
 };
