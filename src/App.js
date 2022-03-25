@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './Navbar/Navbar';
+import { useEffect, useState } from 'react';
+import Cart from './Cart/Cart';
 
 function App() {
+  const [guns, setGuns] = useState([]);
+  console.log(guns);
+
+  useEffect(() => {
+
+    fetch('data.json')
+      .then(res => res.json())
+      .then(data => setGuns(data));
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Navbar></Navbar>
+
+      {
+        guns.map((gun) => (< Cart key={gun.id}> data={gun}</Cart>))
+      }
+    </div >
   );
 }
 
