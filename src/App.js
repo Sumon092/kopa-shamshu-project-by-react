@@ -6,7 +6,14 @@ import Cart from './Cart/Cart';
 
 function App() {
   const [guns, setGuns] = useState([]);
-  console.log(guns);
+  const [cart, setCart] = useState([])
+  // console.log(cart);
+
+  const handleAddToCart = gun => {
+    const newCart = [...cart, gun]
+    setCart(newCart);
+    console.log(newCart);
+  }
 
   useEffect(() => {
 
@@ -18,9 +25,16 @@ function App() {
 
     <div className="App">
       <Navbar></Navbar>
-      {
-        guns.map((gun) => (< Cart key={gun.id} data={gun}></Cart>))
-      }
+      <div>
+        {
+          cart.map((item) => (<h1 key={item.id}>{item.name}</h1>))
+        }
+      </div>
+      <div className='card-container'>
+        {
+          guns.map((gun) => (< Cart key={gun.id} data={gun} handleAddToCart={handleAddToCart}></Cart>))
+        }
+      </div>
     </div >
   );
 }
